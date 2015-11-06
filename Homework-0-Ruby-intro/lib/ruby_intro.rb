@@ -3,15 +3,19 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.reduce(:+) || 0
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  sum(arr.sort.pop(2)) || 0
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  return 0 if arr.empty?
+  arr.combination(2).to_a.each do |pair|
+    return true if sum(pair) == n
+  end
+  return false
 end
 
 # Part 2
