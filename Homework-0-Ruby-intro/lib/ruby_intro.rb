@@ -29,11 +29,29 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  /^[01]+$/ === s && s.to_i(2) % 4 == 0
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  
+  def initialize(isbn, price)
+    raise ArgumentError, "first argument needs to be an isbn" if isbn == ''
+    raise ArgumentError, "second argument needs to be a price greater than 0" if price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
+  def isbn
+    @isbn
+  end
+  
+  def price
+    @price
+  end
+
+  def price_as_string
+    '$' + sprintf('%.2f', @price)
+  end
 end
